@@ -1,0 +1,105 @@
+@use "sass:math";
+
+// Variables
+@import "./variables";
+@import "./checkbox/variables";
+
+// Customization
+.FieldCheckbox--base {
+  display: none;
+
+  + .FieldLabel {
+    position: relative;
+    font-size:$checkbox-label-font-size;
+    color: $checkbox-label-color;
+    display: flex;
+    align-items: center;
+    column-gap: 0.4em;
+    user-select: none;
+    cursor: pointer;
+
+    &::before {
+      display: block;
+      content: " ";
+      height: #{$checkbox-box-height}px;
+      width: #{$checkbox-box-width}px;
+    }
+
+    &::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      top: 50%;
+      left: #{math.div($checkbox-box-width, 2) + $checkbox-box-border-width}px;
+      margin-top: -#{math.div($checkbox-box-checked-height, 2)}px;
+      margin-left: -#{math.div($checkbox-box-checked-width, 2)}px;
+      height: #{$checkbox-box-checked-height}px;
+      width: #{$checkbox-box-checked-width}px;
+      transform: scale(0);
+      transition: transform 200ms ease-in-out;
+    }
+  }
+
+  &:checked + .FieldLabel::after {
+    transform: scale(1);
+    transition: transform 200ms ease-in-out;
+  }
+
+  & + .FieldLabel::after {
+    background-color: $checkbox-box-checked-background-color;
+  }
+
+  & + .FieldLabel::before {
+    border: #{$checkbox-box-border-width}px solid $checkbox-box-border-color;
+    background-color: $checkbox-box-background-color;
+  }
+}
+
+.FieldCheckbox-toggleWrapper {
+  position: relative;
+  border: #{$checkbox-box-border-width}px solid $checkbox-box-border-color;
+  width:40px;
+  height: 20px;
+  content: " ";
+  display: inline-block;
+  border-radius: 40px;
+
+  .FieldCheckbox {
+    display:none;
+
+    &:checked + .FieldLabel {
+      background-color: $checkbox-box-checked-background-color;
+      &::before {
+        left:100%;
+      }
+    }
+  }
+
+  .FieldLabel {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    border-radius: 40px;
+    cursor: pointer;
+    background-color: $checkbox-box-background-color;
+    transition: background-color .3s;
+
+    &::before {
+      position: absolute;
+      content: " ";
+      display: block;
+      top:50%;
+      left:18px;
+      width:18px;
+      height: 18px;
+      margin-top: -10px;
+      border-radius: 20px;
+      background-color: white;
+      transform: translateX(-100%);
+      border: #{$checkbox-box-border-width}px solid $checkbox-box-border-color;
+      transition: left .3s;
+    }
+  }
+}

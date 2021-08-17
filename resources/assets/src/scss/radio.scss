@@ -1,0 +1,58 @@
+@use "sass:math";
+
+// Variables
+@import "./variables";
+@import "./radio/variables";
+
+// Customization
+.FieldRadio {
+  display: none;
+
+  + .FieldLabel {
+    position: relative;
+    font-size:$radio-label-font-size;
+    color: $radio-label-color;
+    display: flex;
+    align-items: center;
+    column-gap: 0.4em;
+    user-select: none;
+    cursor: pointer;
+
+    &::before {
+      display: block;
+      content: " ";
+      height: #{$radio-box-height}px;
+      width: #{$radio-box-width}px;
+      border-radius: 50%;
+    }
+
+    &::after {
+      display: block;
+      content: " ";
+      position: absolute;
+      top: 50%;
+      left: #{math.div($radio-box-width, 2) + $radio-box-border-width}px;
+      margin-top: -#{math.div($radio-box-checked-height, 2)}px;
+      margin-left: -#{math.div($radio-box-checked-width, 2)}px;
+      height: #{$radio-box-checked-height}px;
+      width: #{$radio-box-checked-width}px;
+      transform: scale(0);
+      transition: transform 200ms ease-in-out;
+      border-radius: 50%;
+    }
+  }
+
+  &:checked + .FieldLabel::after {
+    transform: scale(1);
+    transition: transform 200ms ease-in-out;
+  }
+
+  & + .FieldLabel::after {
+    background-color: $radio-box-checked-background-color;
+  }
+
+  & + .FieldLabel::before {
+    border: #{$radio-box-border-width}px solid $radio-box-border-color;
+    background-color: $radio-box-background-color;
+  }
+}

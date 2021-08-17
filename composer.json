@@ -1,0 +1,47 @@
+{
+  "name": "pollen-solutions/field",
+  "description": "Pollen Solutions - Field Component - Layer and tools for creating reusable form fields.",
+  "homepage": "https://www.presstify.com/pollen-solutions/field/",
+  "keywords": [
+    "pollen-solutions",
+    "component",
+    "field",
+    "form"
+  ],
+  "time": "2021-08-16",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jordy Manner",
+      "email": "jordy@presstify.com"
+    }
+  ],
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "pollen-solutions/http": "^1.0",
+    "pollen-solutions/partial": "^1.0",
+    "pollen-solutions/routing": "^1.0",
+    "pollen-solutions/support": "^1.0",
+    "pollen-solutions/validation": "^1.0",
+    "pollen-solutions/view": "^1.0",
+    "pollen-solutions/view-extends": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0",
+    "roave/security-advisories": "dev-latest"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pollen\\Field\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Pollen\\Field\\Test\\": "tests"
+    }
+  },
+  "suggest": {
+    "pollen-solutions/container" : "Pollen Solutions - Container Component - PSR-11 ready Dependencies Injection Container."
+  },
+  "minimum-stability": "dev"
+}

@@ -1,0 +1,14 @@
+// Variables
+@import "../variables";
+
+$checkbox-global-color: fieldColor(regular) !default;
+$checkbox-box-width: 16 !default;
+$checkbox-box-height: 16 !default;
+$checkbox-box-border-color: $checkbox-global-color !default;
+$checkbox-box-border-width: 1 !default;
+$checkbox-box-background-color: fieldColor(white) !default;
+$checkbox-box-checked-width: 10 !default;
+$checkbox-box-checked-height: 10 !default;
+$checkbox-box-checked-background-color: $checkbox-global-color !default;
+$checkbox-label-font-size: 1em !default;
+$checkbox-label-color: $checkbox-global-color !default;
