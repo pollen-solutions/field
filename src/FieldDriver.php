@@ -132,7 +132,7 @@ abstract class FieldDriver implements FieldDriverInterface
                  */
                 'name'   => null,
                 /**
-                 * Value of the field in HTTP request of form submission.
+                 * Current value.
                  * @var string|null $value
                  */
                 'value'  => null,
@@ -235,7 +235,7 @@ abstract class FieldDriver implements FieldDriverInterface
             return;
         }
 
-        $label = $this->get('label') ?: $this->get('name');
+        $label = $this->get('label') ?: Str::ucfirst(Str::lower(Str::snake($this->getName(), ' ')));
         if (empty($label)) {
             return;
         }
@@ -322,7 +322,9 @@ abstract class FieldDriver implements FieldDriverInterface
     {
         $value = $this->pull('value')?? $this->get('attrs.value');
 
-        $this->set('attrs.value', $value !== null ? (string)$value : null);
+        if ($value !== null) {
+            $this->set('attrs.value', (string)$value);
+        }
 
         return $this;
     }
