@@ -18,7 +18,6 @@ class PasswordDriver extends FieldDriver
         return parent::render();
     }
 
-
     /**
      * @inheritDoc
      */

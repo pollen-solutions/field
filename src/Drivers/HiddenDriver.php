@@ -11,13 +11,19 @@ class HiddenDriver extends FieldDriver
     /**
      * @inheritDoc
      */
+    public function label(string $position = 'before'): void
+    {
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function render(): string
     {
         $this->set('attrs.type', 'hidden');
 
         return parent::render();
     }
-
 
     /**
      * @inheritDoc

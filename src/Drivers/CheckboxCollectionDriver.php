@@ -15,9 +15,9 @@ class CheckboxCollectionDriver extends FieldDriver
 {
     /**
      * List of checked values.
-     * @var string[]
+     * @var string[]|null
      */
-    protected array $checkedValues = [];
+    protected ?array $checkedValues = [];
 
     /**
      * @inheritDoc
@@ -28,7 +28,7 @@ class CheckboxCollectionDriver extends FieldDriver
             parent::defaultParams(),
             [
                 /**
-                 * List of checkbox choices.
+                 * List of checkboxes choice.
                  * @var array|CheckboxDriver[]|CheckboxChoiceInterface[]|CheckboxChoiceCollectionInterface $choices
                  */
                 'choices' => [],
