@@ -21,16 +21,17 @@ class SelectDriver extends FieldDriver
             parent::defaultParams(),
             [
                 /**
+                 * List of selection choices.
                  * @var string[]|array|SelectChoiceInterface[]|SelectChoiceCollectionInterface $choices.
                  */
                 'choices'  => [],
                 /**
-                 * Activation de la liste de selection multiple.
+                 * Allow selection of multiple items.
                  * @var bool $multiple
                  */
                 'multiple' => false,
                 /**
-                 * Activation de l'encapsulation
+                 * Enable HTML wrapper.
                  * @var bool
                  */
                 'wrapper' => false

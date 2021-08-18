@@ -7,4 +7,5 @@
 
 <?php echo $this->field('input', [
     'attrs' => $this->get('attrs', []),
+    'label' => false
 ]); ?>

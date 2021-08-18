@@ -24,17 +24,12 @@ class CheckboxDriver extends FieldDriver
             parent::defaultParams(),
             [
                 /**
-                 * Checkbox style.
-                 * @var string|bool base|toggle|none
+                 * Theme style.
+                 * @var string base|toggle|none
                  */
                 'theme'   => 'base',
                 /**
-                 * Field label value.
-                 * @var string|array|LabelDriver
-                 */
-                'label'   => null,
-                /**
-                 * Selection value of the checkbox.
+                 * Selection value.
                  * @var string
                  */
                 'checked' => 'on',
@@ -81,52 +76,20 @@ class CheckboxDriver extends FieldDriver
             $this->push('attrs', 'checked');
         }
 
-        if ($theme = $this->get('theme')) {
-            if ($theme === true || !in_array($theme, ['base', 'toggle', 'none'], true)) {
-                $theme = 'base';
-            }
-
-            if ($theme === 'base' && !$this->get('label')) {
-                $this->set('label', '');
-            } elseif ($theme === 'toggle') {
-                $this->set('label', '');
-            }
-
-            $this->set(
-                'attrs.class',
-                sprintf((($class = $this->get('attrs.class')) ? "$class %s" : "%s"), "FieldCheckbox--$theme")
-            );
-        } else {
-            $this->set('theme', 'none');
+        if (!in_array($theme = $this->get('theme'), ['base', 'toggle', 'none'], true)) {
+            $theme = 'base';
         }
 
-        if ($this->get('label') !== null) {
-            $label = $this->get('label');
-
-            if (!$label instanceof LabelDriver) {
-                $params = [
-                    'attrs' => [],
-                ];
-
-                if (is_string($label)) {
-                    $params['content'] = $label;
-                }
-
-                if (!($id = $this->get('attrs.id'))) {
-                    $id = 'FieldCheckbox-' . $this->getIndex();
-                    $this->set('attrs.id', $id);
-                }
-                $params['attrs']['for'] = $id;
-
-                if (is_array($label)) {
-                    $params = array_merge($params, $label);
-                }
-
-                $this->set('label', $this->field('label', $params));
-            } else {
-                $this->set('label', $label);
-            }
+        if ($theme === 'base' && !$this->get('label')) {
+            $this->set('label', '');
+        } elseif ($theme === 'toggle') {
+            $this->set('label', '');
         }
+
+        $this->set(
+            'attrs.class',
+            sprintf((($class = $this->get('attrs.class')) ? "$class %s" : '%s'), "FieldCheckbox--$theme")
+        );
 
         return parent::render();
     }

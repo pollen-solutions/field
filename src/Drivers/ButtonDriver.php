@@ -17,15 +17,15 @@ class ButtonDriver extends FieldDriver
             parent::defaultParams(),
             [
                 /**
-                 * Content of HTML button tag.
+                 * Text content of HTML button tag.
                  * @var string $content
                  */
                 'content' => 'Send',
                 /**
-                 * Button type in HTML tag.
+                 * Type attribute in HTML tag.
                  * @var string $type
                  */
-                'type'    => 'button',
+                'type'    => 'button'
             ]
         );
     }
