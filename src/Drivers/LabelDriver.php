@@ -17,6 +17,7 @@ class LabelDriver extends FieldDriver
             parent::defaultParams(),
             [
                 /**
+                 * Label HTML content.
                  * @var string $content
                  */
                 'content' => '',
@@ -24,6 +25,12 @@ class LabelDriver extends FieldDriver
         );
     }
 
+    /**
+     * @inheritDoc
+     */
+    public function label(string $position = 'before'): void
+    {
+    }
 
     /**
      * @inheritDoc
