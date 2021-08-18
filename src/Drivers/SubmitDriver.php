@@ -17,9 +17,10 @@ class SubmitDriver extends FieldDriver
             parent::defaultParams(),
             [
                 /**
+                 * Button text and value in HTTP request form submission.
                  * @var string $value
                  */
-                'value' => 'Envoyer',
+                'value' => 'Send',
             ]
         );
     }
