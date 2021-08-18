@@ -3,6 +3,8 @@
  * @var Pollen\Field\FieldTemplateInterface $this
  */
 ?>
+<?php $this->label('before'); ?>
+
 <?php $this->before(); ?>
 
 <?php echo $this->partial('tag', [
@@ -12,3 +14,5 @@
 ]); ?>
 
 <?php $this->after();
+
+$this->label('after');
