@@ -235,7 +235,7 @@ abstract class FieldDriver implements FieldDriverInterface
             return;
         }
 
-        $label = $this->get('label') ?: Str::ucfirst(Str::lower(Str::snake($this->getName(), ' ')));
+        $label = $this->get('label') ?: Str::humanWords($this->getName() ?? '');
         if (empty($label)) {
             return;
         }
